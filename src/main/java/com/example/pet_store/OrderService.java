@@ -20,7 +20,7 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public Optional<Order> getOrderById(Long id) {
+    public Optional<Order> getOrderById(int id) {
         return orderRepository.findById(id);
     }
 
@@ -28,7 +28,7 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public void deleteOrder(Long id) {
+    public void deleteOrder(int id) {
         orderRepository.deleteById(id);
     }
     public Map<String, Integer> getInventoryByStatus() {

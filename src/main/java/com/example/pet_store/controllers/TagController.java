@@ -28,7 +28,7 @@ public class TagController {
 
     // GET: Retrieve tag by ID
     @GetMapping("/{id}")
-    public Tag getTagById(@PathVariable Long id) {
+    public Tag getTagById(@PathVariable int id) {
         return tagRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tag not found"));
 
@@ -37,7 +37,7 @@ public class TagController {
 
     // DELETE: Delete a tag by ID
     @DeleteMapping("/{id}")
-    public void deleteTag(@PathVariable Long id) {
+    public void deleteTag(@PathVariable int id) {
 
         tagRepository.deleteById(id);
     }

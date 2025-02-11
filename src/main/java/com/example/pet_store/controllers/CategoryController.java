@@ -28,14 +28,14 @@ public class CategoryController {
 
     // GET: Retrieve category by ID
     @GetMapping("/{id}")
-    public Category getCategoryById(@PathVariable Long id) {
+    public Category getCategoryById(@PathVariable int id) {
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
     }
 
     // DELETE: Delete a category by ID
     @DeleteMapping("/{id}")
-    public void deleteCategory(@PathVariable Long id) {
+    public void deleteCategory(@PathVariable int id) {
 
         categoryRepository.deleteById(id);
     }

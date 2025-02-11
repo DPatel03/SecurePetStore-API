@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "pets")
 public class Pet {
     @Id
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
     private String name;
@@ -33,8 +33,8 @@ public class Pet {
     )
     private List<Tag> tags = new ArrayList<>();
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     public String getStatus() { return status; }

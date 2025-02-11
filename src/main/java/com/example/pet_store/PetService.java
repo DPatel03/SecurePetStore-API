@@ -24,18 +24,23 @@ public class PetService {
         return petRepository.save(pet);
     }
 
-    public Pet getPetById(Long id) {
+    public Pet getPetById(int id) {
         return petRepository.findById(id)
+                .map(pet -> {
+                    // Initialize lazy-loaded fields
+                    pet.getCategory().getName();  // Force fetch category
+                    pet.getTags().size();  // Force fetch tags
+                    return pet;
+                })
                 .orElseThrow(() -> new RuntimeException("Pet not found"));
     }
-
 
     public Pet updatePet(Pet pet) {
 
         return petRepository.save(pet);
     }
 
-    public void deletePet(Long id) {
+    public void deletePet(int id) {
 
         petRepository.deleteById(id);
     }

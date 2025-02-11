@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
 
     // GET: Retrieve a pet by its ID
     @GetMapping("/{id}")
-    public Pet getPetById(@PathVariable Long id) {
+    public Pet getPetById(@PathVariable int id) {
         return petService.getPetById(id);
     }
 
@@ -65,7 +65,7 @@ import java.util.stream.Collectors;
 
     // DELETE: Delete a pet by ID
     @DeleteMapping("/{id}")
-    public void deletePet(@PathVariable Long id) {
+    public void deletePet(@PathVariable int id) {
         petService.deletePet(id);
     }
 }

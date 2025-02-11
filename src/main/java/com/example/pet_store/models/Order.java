@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 @Table(name = "orders")
 public class Order {
     @Id
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
-    private Long petId;
+    private int petId;
 
     @Column(nullable = false)
     private int quantity;
@@ -22,16 +22,16 @@ public class Order {
     @Column(nullable = false)
     private boolean complete;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public Long getPetId() {
+    public int getPetId() {
         return petId;
     }
-    public void setPetId(Long petId) {
+    public void setPetId(int petId) {
         this.petId = petId;
     }
     public int getQuantity() {

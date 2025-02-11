@@ -27,12 +27,12 @@ public class OrderController {
     }
 
     @GetMapping("/order/{orderId}")
-    public Optional<Order> getOrderById(@PathVariable Long orderId) {
+    public Optional<Order> getOrderById(@PathVariable int orderId) {
         return orderService.getOrderById(orderId);
     }
 
     @DeleteMapping("/order/{orderId}")
-    public String deleteOrder(@PathVariable Long orderId) {
+    public String deleteOrder(@PathVariable int orderId) {
         orderService.deleteOrder(orderId);
         return "Order deleted successfully";
     }
