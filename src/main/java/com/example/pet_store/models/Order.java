@@ -17,7 +17,7 @@ public class Order {
     private String shipDate;
 
     @Column(nullable = false)
-    private String status; // placed, approved, delivered
+    private String status;
 
     @Column(nullable = false)
     private boolean complete;

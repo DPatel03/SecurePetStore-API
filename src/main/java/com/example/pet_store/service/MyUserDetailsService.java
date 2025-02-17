@@ -1,4 +1,4 @@
-package com.example.pet_store;
+package com.example.pet_store.service;
 
 import com.example.pet_store.models.UserPrincipal;
 import com.example.pet_store.models.User;

@@ -2,7 +2,7 @@ package com.example.pet_store.controllers;
 
 import com.example.pet_store.models.Category;
 import com.example.pet_store.models.Pet;
-import com.example.pet_store.PetService;
+import com.example.pet_store.service.PetService;
 import com.example.pet_store.models.Tag;
 import com.example.pet_store.repository.CategoryRepository;
 import com.example.pet_store.repository.TagRepository;
@@ -51,12 +51,6 @@ import java.util.stream.Collectors;
     }
 
 
-    // GET: Retrieve pets by status (optional query parameter)
-    @GetMapping("/findByStatus")
-    public List<Pet> getPetsByStatus(@RequestParam String status) {
-        return petService.getPetsByStatus(status);
-    }
-
     // PUT: Update an existing pet
     @PutMapping
     public Pet updatePet(@RequestBody Pet pet) {
@@ -68,4 +62,8 @@ import java.util.stream.Collectors;
     public void deletePet(@PathVariable int id) {
         petService.deletePet(id);
     }
+    @GetMapping("/findByStatus")
+    public List<Pet> findPetsByStatus(@RequestParam List<String> status) {
+            return petService.getPetsByStatus(status);
+        }
 }

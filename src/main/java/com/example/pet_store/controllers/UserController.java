@@ -1,7 +1,7 @@
 package com.example.pet_store.controllers;
 
 import com.example.pet_store.models.User;
-import com.example.pet_store.UserService;
+import com.example.pet_store.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,5 +53,10 @@ public class UserController {
     @GetMapping("/logout")
     public String logoutUser(@RequestParam String username) {
         return userService.logoutUser(username);
+    }
+
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 }

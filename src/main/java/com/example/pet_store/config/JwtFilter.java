@@ -1,7 +1,7 @@
 package com.example.pet_store.config;
 
-import com.example.pet_store.JWTService;
-import com.example.pet_store.MyUserDetailsService;
+import com.example.pet_store.service.JWTService;
+import com.example.pet_store.service.MyUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     ApplicationContext context;
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
         String username = null;
         String token = null;

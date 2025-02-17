@@ -1,4 +1,4 @@
-package com.example.pet_store;
+package com.example.pet_store.service;
 
 import com.example.pet_store.models.Order;
 import com.example.pet_store.repository.OrderRepository;
@@ -35,4 +35,5 @@ public class OrderService {
         return orderRepository.findAll().stream()
                 .collect(Collectors.groupingBy(Order::getStatus, Collectors.summingInt(Order::getQuantity)));
     }
+
 }

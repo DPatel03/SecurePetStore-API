@@ -1,4 +1,4 @@
-package com.example.pet_store;
+package com.example.pet_store.service;
 
 import com.example.pet_store.models.User;
 import com.example.pet_store.repository.UserRepository;
@@ -9,9 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -26,14 +24,18 @@ public class UserService {
 
 
     // Store logged-in users (Simple session handling)
-    private Map<String, Boolean> loggedInUsers = new HashMap<>();
+//    private Map<String, Boolean> loggedInUsers = new HashMap<>();
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
 
     public User register(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
+        if (user.getRole() == null) {
+            user.setRole("CUSTOMER"); // Default role
+        }
         return userRepository.save(user);
     }
+
 
 //    public User createUser(User user) {
 //        return userRepository.save(user);
@@ -88,10 +90,11 @@ public class UserService {
     }
 
     public String logoutUser(String username) {
-        if (loggedInUsers.containsKey(username)) {
-            loggedInUsers.remove(username);
-            return "User logged out successfully";
-        }
-        return "User is not logged in";
+        return "Logout successful for user: " + username + ". Please remove the token from the client.";
     }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
 }

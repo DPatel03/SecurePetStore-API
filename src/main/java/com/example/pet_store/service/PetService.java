@@ -1,4 +1,4 @@
-package com.example.pet_store;
+package com.example.pet_store.service;
 
 import com.example.pet_store.models.Pet;
 import com.example.pet_store.repository.CategoryRepository;
@@ -27,9 +27,9 @@ public class PetService {
     public Pet getPetById(int id) {
         return petRepository.findById(id)
                 .map(pet -> {
-                    // Initialize lazy-loaded fields
-                    pet.getCategory().getName();  // Force fetch category
-                    pet.getTags().size();  // Force fetch tags
+
+                    pet.getCategory().getName();
+                    pet.getTags().size();
                     return pet;
                 })
                 .orElseThrow(() -> new RuntimeException("Pet not found"));
@@ -46,9 +46,8 @@ public class PetService {
     }
 
 
-    public List<Pet> getPetsByStatus(String status) {
-        return petRepository.findByStatus(status);
-
+    public List<Pet> getPetsByStatus(List<String> status) {
+        return petRepository.findByStatusIn(status);
     }
 
 }

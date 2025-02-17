@@ -1,10 +1,11 @@
 package com.example.pet_store.controllers;
 
 import com.example.pet_store.models.Order;
-import com.example.pet_store.OrderService;
+import com.example.pet_store.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/store")
 public class OrderController {
 
-    private final OrderService orderService;
+    private OrderService orderService;
 
     @Autowired
     public OrderController(OrderService orderService) {
@@ -40,5 +41,11 @@ public class OrderController {
     public Map<String, Integer> getInventory() {
         return orderService.getInventoryByStatus();
     }
+
+    @GetMapping("/all")
+    public List<Order> getAllOrders() {
+        return orderService.getAllOrders();
+    }
+
 
 }

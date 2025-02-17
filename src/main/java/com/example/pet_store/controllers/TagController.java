@@ -21,10 +21,14 @@ public class TagController {
     }
 
     // GET: Retrieve all tags
-    @GetMapping
-    public List<Tag> getAllTags() {
-        return tagRepository.findAll();
-    }
+//    @GetMapping
+//    public List<Tag> getAllTags() {
+//        return tagRepository.findAll();
+//    }
+//    @GetMapping
+//    public Tag getAllTags() {
+//        return tagRepository.findAll();
+//    }
 
     // GET: Retrieve tag by ID
     @GetMapping("/{id}")
